@@ -1,0 +1,108 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Релокация битцы",
+      "shortDescription": "",
+      "type": "normal",
+      "typeLabel": "Обычная",
+      "typeColor": "#2196F3",
+      "priority": 2,
+      "status": 0,
+      "assignedTo": [],
+      "fullDescription": "Братан, забери кучку с битцы. Проверь замок у 28471. Если обнаружил сломанный велосипед, то переходи в раздел \"Табурет\", а там выбирай \"Поломки\". Далее вытащи его поближе к цивилизации, где его может вытащить водитель. Окей? Задачу понял? В таком случае приступай к выполнению!",
+      "bikeNumbers": ["28471", "70012", "80213"],
+      "images": [
+        "style/static/images/tasks/task1_1.jpg",
+        "style/static/images/tasks/task1_2.jpg",
+        "style/static/images/tasks/task1_3.jpg"
+      ],
+      "coordinates": {
+        "latitude": 55.598228,
+        "longitude": 37.569395
+      },
+      "address": "Битцевский лес",
+      "zone": "3Ы",
+      "createdAt": "2025-12-29T07:28:00"
+    },
+    {
+      "id": 2,
+      "title": "ЦОДД м. Нагатинская, выход 5",
+      "type": "codd",
+      "typeLabel": "ЦОДД",
+      "typeColor": "#4CAF50",
+      "priority": 1,
+      "status": 0,
+      "image": "",
+      "fullDescription": "",
+      "coordinates": {
+        "latitude": 55.684114,
+        "longitude": 37.623649
+      },
+      "address": "Нагатинская, 5 выход",
+      "zone": "3Ы",
+      "createdAt": "2025-12-29T08:15:00"
+    },
+    {
+      "id": 3,
+      "title": "Порядок на парковке",
+      "shortDescription": "Жалоба от пользователя на хаотично расставленные велосипеды",
+      "type": "custom-type",
+      "typeLabel": "Обычная",
+      "typeColor": "#2196F3",
+      "priority": 1,
+      "status": 0,
+      "fullDescription": "Метро Новоясеневская",
+      "bikeNumber": null,
+      "images": ["style/static/images/tasks/task3.jpg"],
+      "coordinates": {
+        "latitude": 55.602126,
+        "longitude": 37.552434
+      },
+      "address": "Метро Новоясеневская",
+      "zone": "3Ы",
+      "createdAt": "2025-12-29T09:45:00"
+    },
+    {
+      "id": 4,
+      "title": "Подкова 21364",
+      "shortDescription": "Закрыть подкову",
+      "type": "other-low",
+      "typeLabel": "Обычная",
+      "typeColor": "#2196F3",
+      "priority": 3,
+      "status": 0,
+      "fullDescription": "Закрыть подкову. В случае чего - вяжи на трос, оставь заявку на ремонт.",
+      "bikeNumber": "21364",
+      "image": "",
+      "coordinates": {
+        "latitude": 55.540040, 
+        "longitude": 37.540514
+      },
+      "address": "Южнобутовская улица, 21",
+      "zone": "66Ъ",
+      "createdAt": "2025-12-29T10:20:00"
+    },
+    {
+      "id": 5,
+      "title": "ЛЕТИ В ОФИС",
+      "shortDescription": "Вась, срочно в офис, иначе секир-бошка",
+      "type": "urgent",
+      "typeLabel": "Срочно бл",
+      "typeColor": "#FF0000",
+      "priority": 0,
+      "status": 0,
+      "assignedTo": [1],
+      "fullDescription": "Подписать документы какие-то... важные, я сам хз если честно. По всем вопросам к Пономарёву",
+      "bikeNumber": "",
+      "image": "",
+      "coordinates": {
+        "latitude": 55.732001,
+        "longitude": 37.549717
+      },
+      "address": "Склад на Бережковской",
+      "zone": "",
+      "createdAt": "2025-12-29T11:00:00"
+    }
+  ]
+}

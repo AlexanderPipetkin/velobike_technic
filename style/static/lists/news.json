@@ -1,0 +1,43 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "type": "feature",
+      "icon": "1.",
+      "title": "А вот так выглядят новости",
+      "description": "Например, тут можно написать про новые функции, ивенты, обновления и тд!",
+      "date": "2026-01-11",
+      "priority": "high",
+      "action": {
+        "type": "navigate",
+        "target": "timestamp"
+      },
+      "visible": true
+    },
+    {
+      "id": 2,
+      "type": "maintenance",
+      "icon": "2.",
+      "title": "Завтра тех. работы",
+      "description": "с 3:00 до 5:00 (МСК)",
+      "date": "2026-01-11",
+      "priority": "medium",
+      "visible": true
+    },
+    {
+      "id": 3,
+      "type": "leader",
+      "icon": "3.",
+      "title": "Недельный лидер",
+      "description": "Вася Молотов набрал за неделю 130000 баллов! Ну нифига себе.",
+      "date": "2026-01-11",
+      "priority": "low",
+      "action": {
+        "type": "profile",
+        "userId": 123
+      },
+      "visible": true
+    }
+  ],
+  "last_updated": "2023-12-29T10:00:00Z"
+}

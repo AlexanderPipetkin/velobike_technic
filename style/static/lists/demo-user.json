@@ -1,0 +1,15 @@
+{
+    "id": 1,
+    "first_name": "Вася",
+    "last_name": "Петров",
+    "role": "scout",
+    "telegram_id": 12345678,
+    "username": "vassya",
+    "technical_login": "qwerty123",
+    "slot_status": "active",
+    "balance": 17,
+    "slot_zone": "3Ы",
+    "slot_start_time": "2026-01-10T15:30:00Z",
+    "created_at": "2025-01-10T12:00:00Z",
+    "last_active": "2025-01-10T12:00:00Z"
+}
