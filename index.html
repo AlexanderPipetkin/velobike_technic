@@ -951,7 +951,7 @@
                         const telegramUser = telegramWebApp.initDataUnsafe.user;
                         
                         userData = {
-                            id: telegramUser.id || 0,
+                            id: 1,
                             first_name: telegramUser.first_name || 'Telegram',
                             last_name: telegramUser.last_name || 'User',
                             role: 'scout',
@@ -3703,7 +3703,7 @@
     function loadDemoDataToForm() {
         if (!userData) return;
         
-        document.getElementById('demo-id').value = userData.id || 0;
+        document.getElementById('demo-id').value = userData.id || 1;
         document.getElementById('demo-first-name').value = userData.first_name || 'Вася';
         document.getElementById('demo-last-name').value = userData.last_name || 'Пупкин';
         document.getElementById('demo-role').value = userData.role || 'scout';
