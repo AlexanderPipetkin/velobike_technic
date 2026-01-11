@@ -3746,9 +3746,9 @@
             first_name: document.getElementById('demo-first-name').value.trim() || 'Вася',
             last_name: document.getElementById('demo-last-name').value.trim() || 'Пупкин',
             role: document.getElementById('demo-role').value || 'scout',
-            telegram_id: 0,
-            username: "@vassya",
-            technical_login: "qwerty123",
+            telegram_id: userData?.telegram_id || 0,
+            username: userData?.username || '@vassya',
+            technical_login: userData?.technical_login || 'qwerty123',
             slot_status: document.getElementById('demo-slot-status').value || 'pending',
             balance: parseInt(document.getElementById('demo-balance').value) || 17,
             slot_zone: document.getElementById('demo-slot-zone').value.trim() || '3Ы'
@@ -6160,3 +6160,4 @@
     </script>
 </body>
 </html>
+
