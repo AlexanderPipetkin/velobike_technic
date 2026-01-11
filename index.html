@@ -990,10 +990,6 @@
             setTimeout(() => {
                 hideLoadingScreen();
                 appInitialized = true;
-                
-                if (userData && userData.first_name) {
-                    showNotification(`Привет, ${userData.first_name}!`);
-                }
             }, 1000);
             
         } catch (error) {
@@ -1013,14 +1009,10 @@
             if (telegramUser.first_name) userData.first_name = telegramUser.first_name;
             if (telegramUser.last_name) userData.last_name = telegramUser.last_name;
             if (telegramUser.username) userData.username = telegramUser.username;
+            
             userData.telegram_id = telegramUser.id;
             
             updateProfileInfo();
-            
-            const nameElement = document.getElementById('user-name');
-            if (nameElement && userData.first_name) {
-                nameElement.textContent = userData.first_name;
-            }
         }
     }
 
@@ -3914,6 +3906,7 @@
         const infoBtn = document.getElementById('profile-info-btn');
         if (infoBtn) {
             infoBtn.addEventListener('click', function() {
+                updateProfileModal();
                 document.getElementById('profile-details-modal').classList.add('active');
             });
         }
