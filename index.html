@@ -3860,6 +3860,15 @@
         return 'баллов';
     }
 
+    function getRoleTranslation(role) {
+        const translations = {
+            'scout': 'Скаут',
+            'charger': 'Чарджер', 
+            'driver': 'Водитель'
+        };
+        return translations[role] || role;
+    }
+
     function updateProfileModal() {
         if (!userData) return;
         
@@ -6160,4 +6169,5 @@
     </script>
 </body>
 </html>
+
 
