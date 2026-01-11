@@ -119,7 +119,7 @@
                 <div class="zone-info-card">
                     <div class="zone-info-body">
                         <div class="zone-confirmation-text" id="zone-confirmation-text">
-                            Ты выбрал зону <span id="zone-name-span">5А</span><br>
+                            Ты выбрал зону <span id="zone-name-span">3Ы</span><br>
                             Значит будешь обслуживать районы:
                         </div>
                         <div class="zone-districts-list" id="zone-districts-list">
@@ -691,7 +691,7 @@
                     
                     <div class="input-block">
                         <label class="input-label">Зона слота</label>
-                        <input type="text" id="demo-slot-zone" class="styled-input" value="5А">
+                        <input type="text" id="demo-slot-zone" class="styled-input" value="3Ы">
                     </div>
                     
                     <div class="input-block">
@@ -3712,11 +3712,11 @@
         if (!userData) return;
         
         document.getElementById('demo-id').value = userData.id || 0;
-        document.getElementById('demo-first-name').value = userData.first_name || 'Демо';
-        document.getElementById('demo-last-name').value = userData.last_name || 'Пользователь';
+        document.getElementById('demo-first-name').value = userData.first_name || 'Вася';
+        document.getElementById('demo-last-name').value = userData.last_name || 'Пупкин';
         document.getElementById('demo-role').value = userData.role || 'scout';
         document.getElementById('demo-slot-status').value = userData.slot_status || 'inactive';
-        document.getElementById('demo-slot-zone').value = userData.slot_zone || '5А';
+        document.getElementById('demo-slot-zone').value = userData.slot_zone || '3Ы';
         document.getElementById('demo-balance').value = userData.balance || 17;
     }
 
@@ -3752,7 +3752,7 @@
         const demoData = {
             id: parseInt(document.getElementById('demo-id').value) || 1,
             first_name: document.getElementById('demo-first-name').value.trim() || 'Вася',
-            last_name: document.getElementById('demo-last-name').value.trim() || 'Петров',
+            last_name: document.getElementById('demo-last-name').value.trim() || 'Пупкин',
             role: document.getElementById('demo-role').value || 'scout',
             telegram_id: 0,
             username: "@vassya",
@@ -3802,34 +3802,40 @@
         const nameElement = document.getElementById('profile-name');
         const roleElement = document.getElementById('profile-role');
         const usernameElement = document.getElementById('profile-username');
-        const balanceElement = document.getElementById('profile-balance');
+        
+        let telegramPhotoUrl = null;
+        let telegramFirstName = userData.first_name || 'Пользователь';
+        
+        if (window.Telegram?.WebApp?.initDataUnsafe?.user) {
+            const telegramUser = window.Telegram.WebApp.initDataUnsafe.user;
+            telegramPhotoUrl = telegramUser.photo_url;
+            telegramFirstName = telegramUser.first_name || telegramFirstName;
+        }
         
         if (avatarElement) {
-            const firstName = userData.first_name || 'Д';
-            avatarElement.textContent = firstName.charAt(0).toUpperCase();
-        }
-
-        if (userData.telegram_id) {
-            const avatarUrl = loadTelegramAvatar(userData.telegram_id);
-            if (avatarUrl) {
-                avatarElement.innerHTML = `<img src="${avatarUrl}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`;
+            if (telegramPhotoUrl) {
+                avatarElement.innerHTML = `
+                    <img src="${telegramPhotoUrl}" 
+                        alt="Аватар"
+                        style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"
+                        onerror="this.parentElement.textContent='${telegramFirstName.charAt(0).toUpperCase()}'">
+                `;
             } else {
-                // Заглушка с первой буквой
-                avatarElement.textContent = firstName.charAt(0).toUpperCase();
+                avatarElement.textContent = telegramFirstName.charAt(0).toUpperCase();
             }
         }
         
+        // Остальные поля
         if (nameElement) {
             const fullName = `${userData.first_name || ''} ${userData.last_name || ''}`.trim();
-            nameElement.textContent = fullName || 'Пользователь';
+            nameElement.textContent = fullName || ''; 
         }
         
         if (roleElement) {
             const roleTranslations = {
                 'scout': 'Скаут',
                 'charger': 'Чарджер', 
-                'driver': 'Водитель',
-                'admin': 'Администратор'
+                'driver': 'Водитель'
             };
             roleElement.textContent = roleTranslations[userData.role] || userData.role;
         }
@@ -3841,15 +3847,6 @@
             }
             usernameElement.textContent = username;
         }
-        
-        if (balanceElement && userData.balance !== undefined) {
-            const balance = userData.balance || 0;
-            const pointsWord = declinePoints(balance);
-            
-            balanceElement.textContent = `${balance} ${pointsWord}`;
-            balanceElement.style.color = '#4CAF50';
-        }
-        updateProfileModal();
     }
 
     function declinePoints(number) {
@@ -3876,7 +3873,7 @@
         
         const velobikeIdElement = document.getElementById('modal-velobike-id');
         if (velobikeIdElement) {
-            velobikeIdElement.textContent = userData.id || '0';
+            velobikeIdElement.textContent = '1';
         }
         
         const roleElement = document.getElementById('modal-role');
