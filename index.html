@@ -3863,39 +3863,23 @@
     function updateProfileModal() {
         if (!userData) return;
         
-        const velobikeIdElement = document.getElementById('modal-velobike-id');
-        if (velobikeIdElement) {
-            velobikeIdElement.textContent = '1';
+        let telegramId = userData.telegram_id || '1';
+        if (window.Telegram?.WebApp?.initDataUnsafe?.user?.id) {
+            telegramId = window.Telegram.WebApp.initDataUnsafe.user.id;
         }
         
-        const roleElement = document.getElementById('modal-role');
-        if (roleElement) {
-            roleElement.textContent = userData.role || 'unknown';
-        }
+        const elements = {
+            'modal-velobike-id': userData.id || '1',
+            'modal-role': getRoleTranslation(userData.role) || '—',
+            'modal-telegram-id': telegramId,
+            'modal-balance': (userData.balance || 0) + ' баллов',
+            'modal-created-at': formatHumanDate(userData.created_at || new Date().toISOString()),
+            'modal-launch-mode': getLaunchMode()
+        };
         
-        const telegramIdElement = document.getElementById('modal-telegram-id');
-        if (telegramIdElement) {
-            telegramIdElement.textContent = userData.telegram_id || '0';
-        }
-        
-        const balanceElement = document.getElementById('modal-balance');
-        if (balanceElement) {
-            balanceElement.textContent = userData.balance || '0';
-        }
-        
-        const createdAtElement = document.getElementById('modal-created-at');
-        if (createdAtElement) {
-            let dateToShow;
-            
-            if (userData.created_at) {
-                dateToShow = formatHumanDate(userData.created_at);
-            }            
-            createdAtElement.textContent = dateToShow;
-        }
-
-        const launchModeElement = document.getElementById('modal-launch-mode');
-        if (launchModeElement) {
-            launchModeElement.textContent = getLaunchMode();
+        for (const [id, value] of Object.entries(elements)) {
+            const element = document.getElementById(id);
+            if (element) element.textContent = value;
         }
     }
 
